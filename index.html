@@ -113,6 +113,7 @@ footer a{color:var(--blue);text-decoration:none}
       <input type="text" id="searchInput" placeholder="Search name, constituency, party..." oninput="filterData()">
     </div>
     <select id="typeFilter" onchange="onTypeChange()">
+      <option value="all">MP + MLA</option>
       <option value="MP">MPs Only</option>
       <option value="MLA">MLAs Only</option>
     </select>
@@ -169,8 +170,8 @@ function bc(n){ return n===0?'var(--green)':n<=5?'var(--gold)':n<=20?'var(--acce
 function onTypeChange(){
   const type = document.getElementById('typeFilter').value;
   const sf = document.getElementById('stateFilter');
-  if(type==='MP'){ sf.value='all'; sf.disabled=true; }
-  else { sf.disabled=false; }
+  if(type==='MLA'){ sf.value='all'; sf.disabled=false; }
+  else { sf.disabled=true; }
   filterData();
 }
 
